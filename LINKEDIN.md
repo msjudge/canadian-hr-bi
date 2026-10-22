@@ -1,6 +1,6 @@
 # Build Before You Buy: The Business Case for Internal Mobility — LinkedIn launch kit
 
-Publishing note: these URLs are planned destinations, not verified live sites. Publish the matching repository first, open its Pages URL, then copy only the post below. Do not present the browser replicas as native vendor execution.
+Publishing note: GitHub and the live dashboard are published. The study is listed in LinkedIn Projects and Featured. Feed copy below is a draft; check the publication record before scheduling or posting.
 
 ## Separate post
 
@@ -30,7 +30,7 @@ Explore: https://msjudge.github.io/canadian-hr-bi/
 
 **Skills:** Workforce planning · Scenario analysis · Semantic modelling · Skills intelligence · Cost modelling
 
-**Planned URL:** https://msjudge.github.io/canadian-hr-bi/
+**Live URL:** https://msjudge.github.io/canadian-hr-bi/
 
 ## Screenshot sequence and captions
 
