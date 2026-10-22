@@ -1,0 +1,23 @@
+Build Before You Buy: The Business Case for Internal Mobility
+
+Publishing note: these URLs are planned destinations, not verified live sites. Publish the matching repository first, open its Pages URL, then copy only the post below. Do not present the browser replicas as native vendor execution.
+
+Before approving another external hire, I wanted to test a different workforce-planning question: could better evidence of internal capability change the investment decision?
+
+I built a synthetic Ontario/B.C. scenario model with 240 employee profiles, eight skill pools and 31 demand seats. The allocation respects employee consent, manager release limits and a shared development budget. It prices backfill, transition delay and the possibility that an internal transfer fails.
+
+Across 48 executed scenarios, the dashboard compares current HRIS visibility with an evidence audit under matched assumptions.
+
+In the default scenario, 19 proposed transfers consume CAD 26,000 of development budget. The audit creates CAD 45,300 of modeled gross advantage over current HRIS visibility, or CAD 35,300 after a CAD 10,000 audit cost. Raise that cost to CAD 50,000 and the advantage becomes negative.
+
+That break-even point is the business case: skills discovery has to earn its own cost.
+
+The showcase includes an allocation ledger, scenario controls, semantic model and DAX/M source. The interactive interface is independently built in the browser, inspired by Power BI. Python produced the scenario facts; native Power BI execution remains pending. All data and financial assumptions are synthetic.
+
+Explore: https://msjudge.github.io/canadian-hr-bi/
+
+#StrategicWorkforcePlanning #PeopleAnalytics #InternalMobility #HRIS
+
+
+Manvir Singh Judge | HR Operations · HRIS · People Analytics
+Independent research developed with AI assistance.

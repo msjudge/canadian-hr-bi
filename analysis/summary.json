@@ -1,0 +1,20 @@
+{
+  "default_scenario": {
+    "scenario_id": "S040",
+    "visibility": "Evidence audit",
+    "budget_cad": 30000,
+    "success_probability": 0.8,
+    "backfill_per_transfer_cad": 10000,
+    "scenario_label": "Evidence audit | budget 30000 | p 80% | backfill 10000"
+  },
+  "pool_count": 8,
+  "scenario_count": 48,
+  "fact_rows": 384,
+  "demand_seats": 31,
+  "ready_transfers": 17,
+  "bridge_transfers": 2,
+  "budget_used_cad": 26000,
+  "baseline_cost_cad": 1007500,
+  "expected_cost_cad": 763800.0,
+  "expected_cost_avoided_cad": 243700.0
+}

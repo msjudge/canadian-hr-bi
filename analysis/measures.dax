@@ -1,0 +1,64 @@
+// Create each definition separately as a measure in FactScenario.
+// Single-select DimScenario[scenario_label]. Clear/multi-selection returns BLANK.
+
+Scenario Selected = INT ( HASONEVALUE ( DimScenario[scenario_id] ) )
+
+Demand Seats =
+IF ( [Scenario Selected] = 1, SUM ( FactScenario[demand_seats] ) )
+
+Proposed Transfers =
+IF ( [Scenario Selected] = 1,
+    SUM ( FactScenario[ready_transfers] ) + SUM ( FactScenario[bridge_transfers] ) )
+
+Expected Successful Transfers =
+IF ( [Scenario Selected] = 1, SUM ( FactScenario[expected_successful_transfers] ) )
+
+Expected Coverage = DIVIDE ( [Expected Successful Transfers], [Demand Seats] )
+
+Baseline Cost CAD =
+IF ( [Scenario Selected] = 1, SUM ( FactScenario[baseline_cost_cad] ) )
+
+Expected Cost CAD =
+IF ( [Scenario Selected] = 1, SUM ( FactScenario[expected_cost_cad] ) )
+
+Expected Avoided Cost CAD = [Baseline Cost CAD] - [Expected Cost CAD]
+
+Budget Used CAD =
+IF ( [Scenario Selected] = 1, SUM ( FactScenario[budget_used_cad] ) )
+
+Portfolio Budget CAD =
+IF ( [Scenario Selected] = 1, SELECTEDVALUE ( DimScenario[budget_cad] ) )
+
+Portfolio Budget Remaining CAD =
+IF ( [Scenario Selected] = 1,
+    [Portfolio Budget CAD]
+    - CALCULATE ( [Budget Used CAD], REMOVEFILTERS ( DimPool ) ) )
+
+Selection Message =
+IF ( [Scenario Selected] <> 1, "Choose exactly one scenario",
+     "Synthetic scenario | CAD | pool filters show a share of a fixed allocation" )
+
+Additional Verified People =
+SUMX ( DimPool,
+    DimPool[ready_people] + DimPool[bridge_people]
+    - DimPool[current_ready_people] - DimPool[current_bridge_people] )
+
+Audit Advantage CAD =
+VAR SelectedBudget = SELECTEDVALUE ( DimScenario[budget_cad] )
+VAR SelectedProbability = SELECTEDVALUE ( DimScenario[success_probability] )
+VAR SelectedBackfill = SELECTEDVALUE ( DimScenario[backfill_per_transfer_cad] )
+VAR CurrentCost =
+    CALCULATE ( SUM ( FactScenario[expected_cost_cad] ),
+        REMOVEFILTERS ( DimScenario ),
+        DimScenario[visibility] = "Current HRIS",
+        DimScenario[budget_cad] = SelectedBudget,
+        DimScenario[success_probability] = SelectedProbability,
+        DimScenario[backfill_per_transfer_cad] = SelectedBackfill )
+VAR AuditCost =
+    CALCULATE ( SUM ( FactScenario[expected_cost_cad] ),
+        REMOVEFILTERS ( DimScenario ),
+        DimScenario[visibility] = "Evidence audit",
+        DimScenario[budget_cad] = SelectedBudget,
+        DimScenario[success_probability] = SelectedProbability,
+        DimScenario[backfill_per_transfer_cad] = SelectedBackfill )
+RETURN IF ( [Scenario Selected] = 1, CurrentCost - AuditCost )

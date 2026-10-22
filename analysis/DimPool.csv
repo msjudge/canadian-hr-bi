@@ -1,0 +1,9 @@
+pool_id,province,skill,demand_seats,ready_people,bridge_people,release_limit,external_fee_cad,vacancy_days,delay_cost_per_day_cad,current_ready_people,current_bridge_people
+P01,ON,Data reporting,3,3,3,2,18000,35,300,3,2
+P02,ON,HR systems,4,2,7,3,18500,40,300,0,5
+P03,ON,Quality assurance,5,3,4,4,19000,45,300,2,2
+P04,ON,Cyber operations,3,7,2,2,19500,50,300,2,2
+P05,BC,Data reporting,4,2,2,3,20000,35,300,2,1
+P06,BC,HR systems,5,1,2,4,20500,40,300,1,2
+P07,BC,Quality assurance,3,3,4,2,21000,45,300,1,2
+P08,BC,Cyber operations,4,5,4,3,21500,50,300,3,2
